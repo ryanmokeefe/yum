@@ -12,7 +12,7 @@ const RestaurantSchema = new mongoose.Schema({
     name: String,
     address: {
         street: String,
-        zipcode: number
+        zipcode: Number
     },
     yelpUrl: String,
     items: [MenuItemSchema]
