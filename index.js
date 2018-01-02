@@ -1,5 +1,29 @@
 var mongoose = require('mongoose');
 var Schema = require("./db/schema.js");
+// require and use express
+const express = require('express')
+const app = express()
+// body-parser and method-override
+const parser = require('body-parser')
+const methodOverride = require('method-override')
+
+// set port:
+app.set("port", process.env.port || 4000)
+// configure express to use handlebars:
+app.set("view engine", "hbs")
+
+app.engine('.hbs', hbs({
+    extname:        '.hbs',
+    partialsDir:    'views/',
+    layoutsDir:     'views/',
+    defaultLayout:  'layout-main'
+}))
+
+app.use(method-override('_method'))
+app.use('/assets', express.static('public'))
+
+
+
 
 // function to create new restaurants: 
 function createRestaurant(name, zipcode) {
@@ -96,3 +120,10 @@ function deleteItem(restaurant, item){
     )
 }
 
+app.get('/', (req, res) => {
+    res.render('index')
+})
+
+app.listen(app.get('port'), () => {
+    console.log('listening on port ' + port)
+})
