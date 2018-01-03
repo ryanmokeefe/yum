@@ -1,11 +1,17 @@
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
+
 var Schema = require("./db/schema.js");
+
+// from seed
+// const seedData = require("./db/seed")
+
 // require and use express
 const express = require('express')
 const app = express()
 // body-parser and method-override
 const parser = require('body-parser')
 const methodOverride = require('method-override')
+const hbs = require('express-handlebars')
 
 // set port:
 app.set("port", process.env.port || 4000)
@@ -16,13 +22,32 @@ app.engine('.hbs', hbs({
     extname:        '.hbs',
     partialsDir:    'views/',
     layoutsDir:     'views/',
-    defaultLayout:  'layout-main'
+    defaultLayout:  'layout'
 }))
 
-app.use(method-override('_method'))
+//// move to controllers
+// define models from schemas:
+        // Schemas were not defined; temp removed:
+// const MenuItem = Schema.model("MenuItem", MenuItemSchema)
+// const Restaurant = Schema.model("Restaurant", RestaurantSchema)
+/////
+
+app.use(methodOverride('_method'))
 app.use('/assets', express.static('public'))
+app.use(parser.urlencoded({extended: true}))
 
 
+// app.get('/', (req, res) => {
+//     Restaurant.find({}) 
+//     .then((restaurant) => {
+//         res.render('index', {
+//             restaurants: restaurant
+//         })
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//       })
+// })
 
 
 // function to create new restaurants: 
@@ -125,5 +150,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(app.get('port'), () => {
-    console.log('listening on port ' + port)
+    console.log('listening on port 4000')
 })

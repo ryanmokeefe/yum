@@ -1,12 +1,14 @@
 <h2>Restaurants</h2>
 {{#each restaurant as |restaurant index|}}
 <h3>
-  <a href="/restaurants/{{restaurant.name}}">{{restaurant.name}}</a>
+{{!-- removed controllers route --}}
+  <a href="/{{restaurant.name}}">{{restaurant.name}}</a>
 </h3>
 {{/each}}
 
 <h2>Add Restaurant</h2>
-<form action="/restaurants" method="post">
+{{!-- removed controllers route --}}
+<form action="/" method="post">
   <input type="text" name="restaurant[name]" placeholder="Name">
   <input type="text" name="restaurant[address.street]" placeholder="street address">
   <input type="text" name="restaurant[address.zipcode]" placeholder="zipcode">
