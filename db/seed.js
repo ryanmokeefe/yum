@@ -40,7 +40,7 @@ Restaurant.remove({})
         .then(_ => process.exit())
     // })
 
-// module.exports = restaurantSeed
+// module.exports = Restaurant
 
 
 // clear DBs( no db used, what is being cleared? ) (add error catch):
