@@ -13,7 +13,7 @@ app.use(parser.urlencoded({extended: true}))
 app.use(parser.json())
 
 // set port:
-app.set("port", process.env.port || 4000)
+app.set('port', process.env.port || 4000)
 // configure express to use handlebars:
 app.set("view engine", "hbs")
 
